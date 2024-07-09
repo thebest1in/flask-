@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMSIpfa</title>
+<!-- Inclure Bootstrap (CSS) -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+  body {
+    background-image: url('/static/background.jpg'); /* Chemin vers votre image de fond */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5); /* Couleur de fond semi-transparente */
+  }
+
+  .container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fond semi-transparent pour lisibilité */
+    padding: 30px;
+    border-radius: 10px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .fadeIn {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .fadeOut {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: none;
+  }
+</style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h2 class="text-center mb-4">Sélectionnez votre interface de login :</h2>
+        <div class="text-center mb-4">
+          <button class="btn btn-primary mr-2" onclick="showUserLogin()">Utilisateur (Etudiant/Encadrant)</button>
+          <button class="btn btn-primary" onclick="showAdminLogin()">Administrateur</button>
+        </div>
+
+        <div id="userLogin" class="fadeIn">
+          <h3 class="text-center mb-4">Interface Utilisateur</h3>
+          <form action="#" class="hidden-form">
+            <div class="form-group">
+              <label for="nom">Nom :</label>
+              <input type="text" class="form-control" id="nom" name="nom" required>
+            </div>
+            <div class="form-group">
+              <label for="prenom">Prénom :</label>
+              <input type="text" class="form-control" id="prenom" name="prenom" required>
+            </div>
+            <div class="form-group">
+              <label for="classe">Classe :</label>
+              <select class="form-control" id="classe" name="classe" required>
+                <option value="">Sélectionnez votre classe</option>
+                <option value="3IIR1">3IIR1</option>
+                <option value="3IIR2">3IIR2</option>
+                <option value="3IIR3">3IIR3</option>
+                <option value="3IIR4">3IIR4</option>
+                <option value="3IIR5">3IIR5</option>
+                <option value="3IIR6">3IIR6</option>
+                <option value="3IIR7">3IIR7</option>
+                <option value="3IIR8">3IIR8</option>
+                <option value="3IIR9">3IIR9</option>
+                <option value="3IIR10">3IIR10</option>
+                <option value="3IIR11">3IIR11</option>
+                <option value="3IIR12">3IIR12</option>
+                <option value="3IIR13">3IIR13</option>
+                <option value="3IIR14">3IIR14</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="email">Email :</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="ecole">École :</label>
+              <select class="form-control" id="ecole" name="ecole" required>
+                <option value="">Sélectionnez votre école</option>
+                <option value="EMSI Agdal 1">EMSI Agdal 1</option>
+                <option value="EMSI Agdal 2">EMSI Agdal 2</option>
+                <option value="EMSI Hassan">EMSI Hassan</option>
+                <option value="EMSI Bouragrag">EMSI EMSI Bouragrag</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+          </form>
+        </div>
+
+        <div id="adminLogin" class="fadeOut">
+          <h3 class="text-center mb-4">Interface Administrateur</h3>
+          <form action="#" class="hidden-form">
+            <div class="form-group">
+              <label for="adminNom">Nom :</label>
+              <input type="text" class="form-control" id="adminNom" name="adminNom" required>
+            </div>
+            <div class="form-group">
+              <label for="adminPrenom">Prénom :</label>
+              <input type="text" class="form-control" id="adminPrenom" name="adminPrenom" required>
+            </div>
+            <div class="form-group">
+              <label for="adminEmail">Email :</label>
+              <input type="email" class="form-control" id="adminEmail" name="adminEmail" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inclure Bootstrap (JS et Popper.js pour les fonctionnalités comme les dropdowns) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    function showUserLogin() {
+      document.getElementById('userLogin').classList.add('fadeIn');
+      document.getElementById('userLogin').classList.remove('fadeOut');
+      document.getElementById('adminLogin').classList.add('fadeOut');
+      document.getElementById('adminLogin').classList.remove('fadeIn');
+    }
+
+    function showAdminLogin() {
+      document.getElementById('adminLogin').classList.add('fadeIn');
+      document.getElementById('adminLogin').classList.remove('fadeOut');
+      document.getElementById('userLogin').classList.add('fadeOut');
+      document.getElementById('userLogin').classList.remove('fadeIn');
+    }
+  </script>
+</body>
+</html>
